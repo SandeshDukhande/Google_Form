@@ -1,8 +1,10 @@
 import React from "react";
 import "./Header.css";
+
+import { ReactComponent as Logo } from "../../assets/svg_icons/Logo.svg";
+
 import MenuIcon from "@mui/icons-material/Menu";
 import { IconButton } from "@mui/material";
-import { ReactComponent as Logo } from "../assets/svg_icons/Logo.svg";
 import SearchIcon from "@mui/icons-material/Search";
 import AppsIcon from "@mui/icons-material/Apps";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
@@ -15,11 +17,15 @@ function Header() {
           <MenuIcon />
         </IconButton>
         <Logo />
+        <div className="info">Formify</div>
       </div>
 
       <div className="header_search">
-        <SearchIcon />
-        <input type="text" name="search" />
+        <IconButton>
+          <SearchIcon />
+        </IconButton>
+
+        <input type="text" name="search" placeholder="Search" />
       </div>
 
       <div className="header_right">
