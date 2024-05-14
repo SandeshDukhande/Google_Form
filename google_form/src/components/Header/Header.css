@@ -14,12 +14,13 @@
   font-size: 1.5rem;
   align-items: center;
 }
-.header-info {
+.header_left {
+  gap: 1rem;
   display: flex;
   align-items: center;
 }
 
-.header-right {
+.header_right {
   display: flex;
   align-items: center;
 }
