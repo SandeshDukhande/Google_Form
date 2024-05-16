@@ -8,14 +8,13 @@ import { IconButton } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import AppsIcon from "@mui/icons-material/Apps";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import Sidebar from "../Sidebar/Sidebar";
 
 function Header() {
   return (
     <div className="header">
       <div className="header_left">
-        <IconButton>
-          <MenuIcon />
-        </IconButton>
+        <Sidebar />
         <Logo />
         <div className="info">Formify</div>
       </div>
