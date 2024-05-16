@@ -1,0 +1,9 @@
+.sidebar {
+  width: 15rem;
+}
+
+.list_item:hover {
+  background-color: #f4f4f9;
+  border-radius: 10px 10px 10px 10;
+  color: black;
+}
