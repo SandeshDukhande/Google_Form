@@ -1,5 +1,6 @@
 import "./App.css";
 import Header from "./components/Header/Header";
+import Template from "./components/Template/Template";
 // import React, { useState } from "react";
 
 // function App() {
@@ -62,6 +63,7 @@ function App() {
   return (
     <div>
       <Header />
+      <Template />
     </div>
   );
 }
