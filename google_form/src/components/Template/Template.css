@@ -1,0 +1,21 @@
+.template_section {
+  background-color: #f4f4f9;
+  padding-bottom: 2.5rem;
+  padding-top: 0.5rem;
+}
+
+.template_top {
+  margin-left: 11.5rem;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.template_right {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+}
