@@ -8,6 +8,7 @@ import New from "../../assets/images/New.png";
 import Registration from "../../assets/images/Registration.png";
 import Quiz from "../../assets/images/Quiz.png";
 import Feedback from "../../assets/images/Feedback.png";
+import Contact_Information from "../../assets/images/Contact_Information.png";
 
 function Template() {
   return (
@@ -34,6 +35,14 @@ function Template() {
           <div className="card">
             <img src={Feedback} alt="Feedback" className="card_image" />
             <p className="card_title">Feedback</p>
+          </div>
+          <div className="card">
+            <img
+              src={Contact_Information}
+              alt="Contact"
+              className="card_image"
+            />
+            <p className="card_title">Contact Information</p>
           </div>
         </div>
         <div className="template_right">
