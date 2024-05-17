@@ -1,0 +1,39 @@
+.mainbody {
+  background-color: white;
+  margin-left: 16rem;
+  margin-right: 16rem;
+}
+
+.mainbody_top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.mainbody_top_left {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-left: 10rem;
+}
+
+.mainbody_top_right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.mainbody_top_center {
+  font-size: 1rem;
+  margin-right: 16rem;
+  display: flex;
+  box-sizing: content-box;
+  align-items: center;
+  padding: 3px 5px;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+}
+
+.mainbody_docs {
+}
