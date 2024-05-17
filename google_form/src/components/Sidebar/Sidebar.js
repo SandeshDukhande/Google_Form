@@ -11,7 +11,7 @@ import { ReactComponent as Slides } from "../../assets/svg_icons/Slides.svg";
 import { ReactComponent as Form } from "../../assets/svg_icons/Form.svg";
 
 import { FiSettings } from "react-icons/fi";
-// import { BsCircleFunction } from "react-icons/bs";
+import { BsQuestionCircle } from "react-icons/bs";
 
 function Sidebar() {
   const [state, setState] = useState({
@@ -106,10 +106,10 @@ function Sidebar() {
           <FiSettings />
           <div>Settings</div>
         </ListItem>
-        {/* <ListItem className="list_item">
+        <ListItem className="list_item">
           <BsQuestionCircle />
           <div>Help & Feedback</div>
-        </ListItem> */}
+        </ListItem>
       </List>
     </div>
   );
