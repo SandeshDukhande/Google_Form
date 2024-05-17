@@ -1,6 +1,7 @@
 import "./App.css";
 import Header from "./components/Header/Header";
 import Template from "./components/Template/Template";
+import Home from "./pages/Home/Home";
 // import React, { useState } from "react";
 
 // function App() {
@@ -62,8 +63,7 @@ import Template from "./components/Template/Template";
 function App() {
   return (
     <div>
-      <Header />
-      <Template />
+      <Home />
     </div>
   );
 }
