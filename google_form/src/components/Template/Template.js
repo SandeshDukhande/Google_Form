@@ -9,8 +9,14 @@ import Registration from "../../assets/images/Registration.png";
 import Quiz from "../../assets/images/Quiz.png";
 import Feedback from "../../assets/images/Feedback.png";
 import Contact_Information from "../../assets/images/Contact_Information.png";
-
+import uuid from "react-uuid";
+import { useHistory } from "react-router-dom";
 function Template() {
+  const createForm = () => {
+    // console.log("Create new form clicked");
+    const id_ = uuid();
+    console.log(id_);
+  };
   return (
     <div className="template_section">
       <div className="template_top">
@@ -20,7 +26,7 @@ function Template() {
           </span>
         </div>
         <div className="template_body">
-          <div className="card">
+          <div className="card" onClick={createForm}>
             <img src={New} alt="New" className="card_image" />
             <p className="card_title">New Form</p>
           </div>

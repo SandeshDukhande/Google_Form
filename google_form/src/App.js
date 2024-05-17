@@ -1,7 +1,9 @@
 import "./App.css";
+import FormHeader from "./components/FormHeader/FormHeader";
 import Header from "./components/Header/Header";
 import Template from "./components/Template/Template";
 import Home from "./pages/Home/Home";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 // import React, { useState } from "react";
 
 // function App() {
@@ -62,9 +64,14 @@ import Home from "./pages/Home/Home";
 
 function App() {
   return (
-    <div>
-      <Home />
-    </div>
+    <BrowserRouter>
+      <div>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/form" element={<FormHeader />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
