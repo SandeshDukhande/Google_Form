@@ -10,6 +10,7 @@
 .question_form_top {
   background-color: white;
   border-top: 8px solid rgb(103, 58, 183);
+  border-radius: 0.5rem;
   padding: 30px 25px;
   text-transform: capitalize;
 }
@@ -48,7 +49,7 @@
 }
 .add_question {
   background-color: white;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   padding: 25px 22px;
   text-transform: capitalize;
   display: flex;
@@ -58,16 +59,23 @@
   margin-left: 10px;
 }
 
+.add_question_top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
 .question_form_top {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
 }
+
 .question {
   box-sizing: border-box;
   margin-top: 10px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Google Sans", "Roboto", "Arial", "sans-serif";
   font-size: 15px;
   font-weight: 400;
   flex: 1;
