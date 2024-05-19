@@ -1,7 +1,5 @@
 import "./App.css";
-import FormHeader from "./components/FormHeader/FormHeader";
-import Header from "./components/Header/Header";
-import Template from "./components/Template/Template";
+import CreateNewForm from "./components/CreateForm/CreateNewForm";
 import Home from "./pages/Home/Home";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Signup from "./pages/Signup/Signup";
@@ -71,7 +69,8 @@ function App() {
       <div>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/form" element={<FormHeader />} />
+
+          <Route path="/form/:id" element={<CreateNewForm />}></Route>
           <Route path="/signup" exact element={<Signup/>} />
 	        <Route path="/login" exact element={<Login/>} />
 			    <Route path="/" element={<Navigate replace to="/Login" />} />

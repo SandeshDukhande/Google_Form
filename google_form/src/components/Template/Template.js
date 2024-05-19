@@ -10,13 +10,23 @@ import Quiz from "../../assets/images/Quiz.png";
 import Feedback from "../../assets/images/Feedback.png";
 import Contact_Information from "../../assets/images/Contact_Information.png";
 import uuid from "react-uuid";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 function Template() {
+
+  let navigate = useNavigate();
+
   const createForm = () => {
+
     // console.log("Create new form clicked");
+
     const id_ = uuid();
+
     console.log(id_);
+
+    navigate(`/form/${id_}`);
   };
+
   return (
     <div className="template_section">
       <div className="template_top">

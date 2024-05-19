@@ -1,0 +1,55 @@
+.form_header {
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form_header_left {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.form_header_icon {
+  color: #202124;
+  font-size: 1.5rem;
+}
+
+.form_name {
+  border: none;
+  outline: none;
+  font-family: "Google Sans", "Roboto", "Arial" "sans-serif";
+  font-size: 1rem;
+  line-height: 1.5rem;
+  margin-left: 1rem;
+  color: #202124;
+  width: 7.5rem;
+}
+
+.form_name:focus {
+  border-bottom: 1px solid black;
+}
+
+.form_header_right {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.root {
+  flex-grow: 1;
+}
+
+.tabs {
+  height: 10;
+}
+
+.tab {
+  height: 10px;
+  font-size: 1rem;
+  font-family: "Google Sans,Roboto,Arial,sans-serif";
+  font-weight: 600;
+  text-transform: capitalize;
+  color: #5f6368;
+}
