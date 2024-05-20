@@ -29,6 +29,8 @@ import RadioButtonCheckedIcon from "@mui/icons-material/RadioButtonChecked";
 import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
 import LabelIcon from "@mui/icons-material/Label";
 import FilterNoneIcon from "@mui/icons-material/FilterNone";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import DragIndicatorIcon from "@mui/icons-material/DragIndicator";
 import "./Question_Form.css";
 
 function Question_Form() {
@@ -42,6 +44,9 @@ function Question_Form() {
         { optionText: "Lucknow" },
         { optionText: "Mandya" },
       ],
+      answer: false,
+      answerKey: "",
+      points: 0,
       open: true,
       required: false,
     },
@@ -123,6 +128,53 @@ function Question_Form() {
     ]);
   }
 
+  function setOption(ans, qno) {
+    let questions = [...questions];
+    questions[qno].answerKey = ans;
+    setQuestions(questions);
+    console.log(qno + " " + questions[qno].answerKey);
+  }
+  function setOptionPoints(pts, qno) {
+    let questions = [...questions];
+    questions[qno].points = pts;
+    setQuestions(questions);
+    console.log(qno + " " + questions[qno].points);
+  }
+
+  function doneAnswer(i) {
+    let answerOfQuestions = [...questions];
+    answerOfQuestions[i].answer = !answerOfQuestions[i].answer;
+    setQuestions(answerOfQuestions);
+  }
+
+  function addAnswer(i) {
+    let answerOfQuestions = [...questions];
+    answerOfQuestions[i].answer = !answerOfQuestions[i].answer;
+    setQuestions(answerOfQuestions);
+  }
+
+  function onDragEnd(result) {
+    if (!result.destination) {
+      return;
+    }
+
+    let itemgg = [...questions];
+
+    const itemF = reorder(
+      itemgg,
+      result.source.index,
+      result.destination.index
+    );
+    setQuestions(itemF);
+  }
+
+  const reorder = (list, startIndex, endIndex) => {
+    const result = Array.from(list);
+    const [removed] = result.splice(startIndex, 1);
+    result.splice(endIndex, 0, removed);
+    return result;
+  };
+
   const questionsUI = () => {
     return questions.map((ques, i) => (
       <div>
@@ -188,6 +240,7 @@ function Question_Form() {
           </AccordionSummary>
           <div className="question_boxes">
             <AccordionDetails className="add_question">
+              <div className="top_header">Choose correct answer</div>
               <div className="add_question_top">
                 <input
                   type="text"
@@ -196,6 +249,15 @@ function Question_Form() {
                   value={ques.questionText}
                   onChange={(e) => {
                     changeQuestion(e.target.value, i);
+                  }}
+                ></input>
+                <input
+                  type="number"
+                  className="points"
+                  min="0"
+                  placeholder="0"
+                  onChange={(e) => {
+                    setOptionPoints(e.target.value, i);
                   }}
                 ></input>
                 <CropOriginalIcon style={{ color: "#5f6368" }} />
@@ -327,8 +389,8 @@ function Question_Form() {
                     <BsTrash />
                   </IconButton>
                   <span style={{ color: "#5f6368", fontSize: "13px" }}>
-                    Required{" "}
-                  </span>{" "}
+                    Required
+                  </span>
                   <Switch
                     name="checked"
                     color="primary"
