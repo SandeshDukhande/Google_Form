@@ -2,8 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import { StateContext, StateProvider } from "./components/redux/StateProvider";
-import reducer, { initialState } from "./components/redux/reducer/reducer";
+import { StateContext, StateProvider } from "../src/redux/StateProvider";
+import reducer, { initialState } from "../src/redux/reducer";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
