@@ -420,7 +420,7 @@ function Question_Form() {
   ]);
 
   function changeQuestion(text, i) {
-    var newQuestion = [...questions];
+    let newQuestion = [...questions];
     newQuestion[i].questionText = text;
     setQuestions(newQuestion);
     console.log(newQuestion);
@@ -497,215 +497,218 @@ function Question_Form() {
 
   const questionsUI = () => {
     return questions.map((ques, i) => (
-      <Accordion
-        key={i}
-        expanded={ques.open}
-        className={ques.open ? "add_border" : ""}
-      >
-        <AccordionSummary
-          aria-controls={`panel${i}-content`}
-          id={`panel${i}-header`}
-          elevation={1}
-          style={{ width: "100%" }}
+      <div>
+        <Accordion
+          key={i}
+          expanded={ques.open}
+          className={ques.open ? "add_border" : ""}
         >
-          {ques.open ? (
-            <div className="saved_questions">
-              <Typography
-                style={{
-                  fontSize: "15px",
-                  fontWeight: "400",
-                  letterSpacing: "0.5px",
-                  paddingBottom: "8px",
-                }}
-              >
-                {i + 1}. {ques.questionText}
-              </Typography>
-              {ques.options.map((op, j) => (
-                <div key={j}>
-                  <div style={{ display: "flex" }}>
-                    <FormControlLabel
-                      style={{ marginLeft: "5px", marginBottom: "5px" }}
-                      disabled
-                      control={
-                        <input
-                          type={ques.questionType}
-                          color="primary"
-                          style={{ marginRight: "3px" }}
-                          required={ques.required}
-                        />
-                      }
-                      label={
-                        <Typography
-                          style={{
-                            fontFamily: "Roboto, Arial, sans-serif",
-                            fontSize: "13px",
-                            fontWeight: "400",
-                            letterSpacing: "0.5px",
-                            lineHeight: "20px",
-                            color: "#202124",
-                          }}
-                        >
-                          {op.optionText}
-                        </Typography>
-                      }
-                    />
+          <AccordionSummary
+            aria-controls={`panel${i}-content`}
+            id={`panel${i}-header`}
+            elevation={1}
+            style={{ width: "100%" }}
+          >
+            {ques.open ? (
+              <div className="saved_questions">
+                <Typography
+                  style={{
+                    fontSize: "15px",
+                    fontWeight: "400",
+                    letterSpacing: "0.5px",
+                    paddingBottom: "8px",
+                  }}
+                >
+                  {i + 1}. {ques.questionText}
+                </Typography>
+                {ques.options.map((op, j) => (
+                  <div key={j}>
+                    <div style={{ display: "flex" }}>
+                      <FormControlLabel
+                        style={{ marginLeft: "5px", marginBottom: "5px" }}
+                        disabled
+                        control={
+                          <input
+                            type={ques.questionType}
+                            color="primary"
+                            style={{ marginRight: "3px" }}
+                            required={ques.required}
+                          />
+                        }
+                        label={
+                          <Typography
+                            style={{
+                              fontFamily: "Roboto, Arial, sans-serif",
+                              fontSize: "13px",
+                              fontWeight: "400",
+                              letterSpacing: "0.5px",
+                              lineHeight: "20px",
+                              color: "#202124",
+                            }}
+                          >
+                            {op.optionText}
+                          </Typography>
+                        }
+                      />
+                    </div>
                   </div>
-                </div>
-              ))}
-            </div>
-          ) : (
-            ""
-          )}
-        </AccordionSummary>
-        <div className="question_boxes">
-          <AccordionDetails className="add_question">
-            <div className="add_question_top">
-              <input
-                type="text"
-                className="questions"
-                placeholder="Questions"
-                value={ques.questionText}
-                onChange={(e) => {
-                  changeQuestion(e.target.value, i);
-                }}
-              ></input>
-              <CropOriginalIcon style={{ color: "#5f6368" }} />
-              <Select
-                className="select"
-                style={{ color: "#5f6368", fontSize: "1rem" }}
-              >
-                <MenuItem
-                  id="text"
-                  value="text"
-                  onClick={() => {
-                    addQuestionType(i, "text");
+                ))}
+              </div>
+            ) : (
+              ""
+            )}
+          </AccordionSummary>
+          <div className="question_boxes">
+            <AccordionDetails className="add_question">
+              <div className="add_question_top">
+                <input
+                  type="text"
+                  className="questions"
+                  placeholder="Questions"
+                  value={ques.questionText}
+                  onChange={(e) => {
+                    changeQuestion(e.target.value, i);
                   }}
+                ></input>
+                <CropOriginalIcon style={{ color: "#5f6368" }} />
+                <Select
+                  className="select"
+                  style={{ color: "#5f6368", fontSize: "1rem" }}
                 >
-                  <SubjectIcon style={{ marginRight: "10px" }} /> Paragraph
-                </MenuItem>
-                <MenuItem
-                  id="checkbox"
-                  value="Checkbox"
-                  onClick={() => {
-                    addQuestionType(i, "checkbox");
-                  }}
-                >
-                  <CheckBoxIcon
-                    style={{ marginRight: "10px", color: "#70757a" }}
-                    checked
-                  />{" "}
-                  Checkboxes
-                </MenuItem>
-                <MenuItem
-                  id="radio"
-                  value="Radio"
-                  onClick={() => {
-                    addQuestionType(i, "radio");
-                  }}
-                >
-                  <Radio
-                    style={{ marginRight: "10px", color: "#70757a" }}
-                    checked
-                  />
-                  Multiple Choice
-                </MenuItem>
-              </Select>
-              {ques.options.map((op, j) => (
-                <div className="add_question_body" key={j}>
-                  {ques.questionType !== "text" ? (
-                    <input
-                      type={ques.questionType}
-                      style={{ marginRight: "10px" }}
+                  <MenuItem
+                    id="text"
+                    value="text"
+                    onClick={() => {
+                      addQuestionType(i, "text");
+                    }}
+                  >
+                    <SubjectIcon style={{ marginRight: "10px" }} /> Paragraph
+                  </MenuItem>
+                  <MenuItem
+                    id="checkbox"
+                    value="Checkbox"
+                    onClick={() => {
+                      addQuestionType(i, "checkbox");
+                    }}
+                  >
+                    <CheckBoxIcon
+                      style={{ marginRight: "10px", color: "#70757a" }}
+                      checked
+                    />{" "}
+                    Checkboxes
+                  </MenuItem>
+                  <MenuItem
+                    id="radio"
+                    value="Radio"
+                    onClick={() => {
+                      addQuestionType(i, "radio");
+                    }}
+                  >
+                    <Radio
+                      style={{ marginRight: "10px", color: "#70757a" }}
+                      checked
                     />
-                  ) : (
-                    <ShortTextIcon style={{ marginRight: "10px" }} />
-                  )}
-                  <div>
-                    <input
-                      type="text"
-                      className="text_input"
-                      placeholder="option"
-                      value={op.optionText}
-                      onChange={(e) => {
-                        changeOptionValue(e.target.value, i, j);
+                    Multiple Choice
+                  </MenuItem>
+                </Select>
+                {ques.options.map((op, j) => (
+                  <div className="add_question_body" key={j}>
+                    {ques.questionType !== "text" ? (
+                      <input
+                        type={ques.questionType}
+                        style={{ marginRight: "10px" }}
+                      />
+                    ) : (
+                      <ShortTextIcon style={{ marginRight: "10px" }} />
+                    )}
+                    <div>
+                      <input
+                        type="text"
+                        className="text_input"
+                        placeholder="option"
+                        value={op.optionText}
+                        onChange={(e) => {
+                          changeOptionValue(e.target.value, i, j);
+                        }}
+                      />
+                    </div>
+                    <IconButton
+                      aria-label="delete"
+                      onClick={() => removeOption(i, j)}
+                    >
+                      <CloseIcon />
+                    </IconButton>
+                  </div>
+                ))}
+              </div>
+
+              <div className="add_footer">
+                <div className="add_question_bottom_left">
+                  <Button
+                    size="small"
+                    style={{
+                      textTransform: "none",
+                      color: "#4285f4",
+                      fontSize: "13px",
+                      fontWeight: "600",
+                    }}
+                  >
+                    <FcRightUp
+                      style={{
+                        border: "2px solid #4285f4",
+                        padding: "2px",
+                        marginRight: "8px",
                       }}
                     />
-                  </div>
+                    Answer key
+                  </Button>
+                </div>
+                <div className="add_question_bottom">
+                  <IconButton
+                    aria-label="Copy"
+                    onClick={() => {
+                      copyQuestion(i);
+                    }}
+                  >
+                    <FilterNoneIcon />
+                  </IconButton>
                   <IconButton
                     aria-label="delete"
-                    onClick={() => removeOption(i, j)}
+                    onClick={() => {
+                      deleteQuestion(i);
+                    }}
                   >
-                    <CloseIcon />
+                    <BsTrash />
+                  </IconButton>
+                  <span style={{ color: "#5f6368", fontSize: "13px" }}>
+                    Required{" "}
+                  </span>{" "}
+                  <Switch
+                    name="checked"
+                    color="primary"
+                    onClick={() => {
+                      requiredQuestion(i);
+                    }}
+                    checked={ques.required}
+                  />
+                  <IconButton>
+                    <MoreVertIcon />
                   </IconButton>
                 </div>
-              ))}
-            </div>
-          </AccordionDetails>
-          <div className="add_footer">
-            <div className="add_question_bottom_left">
-              <Button
-                size="small"
-                style={{
-                  textTransform: "none",
-                  color: "#4285f4",
-                  fontSize: "13px",
-                  fontWeight: "600",
-                }}
-              >
-                <FcRightUp
-                  style={{
-                    border: "2px solid #4285f4",
-                    padding: "2px",
-                    marginRight: "8px",
-                  }}
-                />
-                Answer key
-              </Button>
-            </div>
-            <div className="add_question_bottom">
-              <IconButton
-                aria-label="Copy"
-                onClick={() => {
-                  copyQuestion(i);
-                }}
-              >
-                <FilterNoneIcon />
-              </IconButton>
-              <IconButton
-                aria-label="delete"
-                onClick={() => {
-                  deleteQuestion(i);
-                }}
-              >
-                <BsTrash />
-              </IconButton>
-              <span style={{ color: "#5f6368", fontSize: "13px" }}>
-                Required{" "}
-              </span>{" "}
-              <Switch
-                name="checked"
-                color="primary"
-                onClick={() => {
-                  requiredQuestion(i);
-                }}
-                checked={ques.required}
+              </div>
+            </AccordionDetails>
+            <div className="question_edit">
+              <AddCircleOutlineIcon
+                onClick={addMoreQuestionFeild}
+                className="edit"
               />
-              <IconButton>
-                <MoreVertIcon />
-              </IconButton>
+              <OndemandVideoIcon className="edit" />
+              <CropOriginalIcon className="edit" />
+              <TextFieldsIcon className="edit" />
             </div>
           </div>
-        </div>
-        <div className="question_edit">
-          <AddCircleOutlineIcon
-            onClick={addMoreQuestionFeild}
-            className="edit"
-          />
-          <OndemandVideoIcon className="edit" />
-          <CropOriginalIcon className="edit" />
-          <TextFieldsIcon className="edit" />
-        </div>
-      </Accordion>
+        </Accordion>
+      </div>
     ));
   };
 
