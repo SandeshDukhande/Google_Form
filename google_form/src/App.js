@@ -6,6 +6,7 @@ import Signup from "./pages/Signup/Signup";
 import Login from "./pages/Login/Login";
 import NotFound from "./pages/Not Found/NotFound";
 import Contact from "./pages/Contact/Contact";
+import HomePage from "./pages/Landing Page/HomePage";
 
 function App() {
   const user = localStorage.getItem("token");
@@ -13,7 +14,7 @@ function App() {
     <BrowserRouter>
       <div>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/signup" exact element={<Signup />} />
           <Route path="/login" exact element={<Login />} />
           <Route path="/" element={<Navigate replace to="/Login" />} />
