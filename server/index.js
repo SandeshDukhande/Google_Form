@@ -1,31 +1,30 @@
+import dotenv from "dotenv";
+import express from "express";
+import connection from "./db.js";
+import userRoutes from "./routes/users.js";
+import authRoutes from "./routes/auth.js";
+import contactUsRoute from "./routes/contactUsRoute.js";
+import cors from "cors";
 
-require("dotenv").config();
-const express = require("express");
-const connection = require("./db");
-const userRoutes = require("./routes/users");
-const authRoutes = require("./routes/auth");
-const cors = require("cors");
+dotenv.config();
 
 const app = express();
-const PORT = 3500;
+const PORT = process.env.PORT || 3500;
 
 connection();
 app.use(cors());
 app.use(express.json());
 
-// app.get("/", (request, response) => {
-//   response.send("Hello bhai!!");
-// });
-
 // routes
 app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/api/contact", contactUsRoute);
 
 app.post("/api/register", (request, response) => {
   console.log(request.body);
   response.json({ status: "ok" });
 });
-const port = process.env.PORT || 3500;
+
 app.listen(PORT, () => {
-  console.log(`Server has started litening on ${PORT}`);
+  console.log(`Server is listening on ${PORT}`);
 });
