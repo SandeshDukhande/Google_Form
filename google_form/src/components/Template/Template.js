@@ -13,11 +13,9 @@ import uuid from "react-uuid";
 import { useNavigate } from "react-router-dom";
 
 function Template() {
-
   let navigate = useNavigate();
 
   const createForm = () => {
-
     // console.log("Create new form clicked");
 
     const id_ = uuid();
